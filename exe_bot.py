@@ -17,7 +17,7 @@ def bug_municip(objeto, js2):
 		objeto.driver.execute_script(js2)
 		time.sleep(t)
 		print('^time ^^^^^^^^^^^^^^^^^^^^',t)
-		objeto.driver.find_elements_by_xpath('//button[@class="sui-AtomButton sui-AtomButton--primaryColor sui-AtomButton--solid "]')[0].click()
+		objeto.driver.find_elements_by_xpath('//button[@type="submit"]')[0].click()
 		
 		int('[cont] esta en el valor de:--->',cont)
 	except Exception as e:
