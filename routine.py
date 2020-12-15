@@ -170,7 +170,10 @@ def rout(ck_l,
 		url_var,
 		f_url_var,
 		loop_var,
-		img_var):
+		img_var,
+		varian_var):
+	
+	print('ASEGURAR VARIACIONES °--->',varian_var, ' - Typo:',type(varian_var))
 	
 	#url = 'https://www.myip.com/'
 	#path = 'D:\\c_driver\\chromedriver.exe'
@@ -281,6 +284,9 @@ def rout(ck_l,
 								
 
 			for i in range(int(ruti)):
+				print('|-°-|')
+				if c > int(ruti): break
+
 				print('AQUI ESTA save_t    <:> ',save_t,'')
 				time.sleep(t) # Time of interval
 				print('Start loop->')
@@ -326,7 +332,7 @@ def rout(ck_l,
 				save_t.append(ti)
 				save_d.append(de)
 
-				if add_c == 3+1: #<< 3 debe replazarse por una variable electiva en su version final
+				if add_c == varian_var: #<< 3 debe replazarse por una variable electiva en su version final
 					add_c=0
 					save_t=[]
 					save_d=[]
