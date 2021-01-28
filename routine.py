@@ -254,7 +254,7 @@ def rout(ck_l,
 
 		for ro in dic.keys():
 
-			if c == int(ruti): break # verify that not exceed the amount of "ciclos" (ruti) in case that the "dic.keys" is greater than "ruti"
+			if c >= int(ruti): break # verify that not exceed the amount of "ciclos" (ruti) in case that the "dic.keys" is greater than "ruti"
 
 			print('Conect with-prox: ', ro)
 

@@ -158,22 +158,30 @@ chrome.webRequest.onAuthRequired.addListener(
 		self.driver.find_element_by_id('email').send_keys(log_user)
 		self.driver.find_element_by_id('password').send_keys(log_psw)
 
-		#Pending to SOLVE!!
+		#Pending
+
+
 		try: # En caso de alerta de cookies 
-			self.driver.execute_script('''
-			var cookies = document.querySelector('button[class="sui-AtomButton sui-AtomButton--primary sui-AtomButton--center "]');
-			cookies.click() 
-				''')
+			self.driver.execute_script('''var x=document.getElementsByTagName('span');
+for(i=x.length;i>-1;i--){
+    try{
+        if (x[i].textContent == 'Aceptar y cerrar'){
+           x[i].click();
+        }     
+    }
+    catch(e){}
+}
+		'''	)
 		except:
 			pass
 
-		#pending to SOLVE!!	
+		#pending	
 		self.driver.execute_script('''
 		var sub=document.querySelector('button[type="submit"]');	
 		sub.click()
 		'''	)
 		print('before -log')
-		time.sleep(25)	
+		#time.sleep(25)#<<
 		#l=self.driver.find_elements_by_xpath('//a[@class="ma-NavigationTopNav-accountInfo-logoutLn"]')[0].text#<<
 		cn=0
 		while 1:
@@ -181,11 +189,13 @@ chrome.webRequest.onAuthRequired.addListener(
 				
 				return False
 			try:
-				l=self.driver.find_elements_by_css_selector('a[class="ma-NavigationTopNav-accountInfo-logoutLn"]')[0].text #<<
+				#l=self.driver.find_elements_by_css_selector('a[class="ma-NavigationTopNav-accountInfo-logoutLn"]')[0].text  #find evdence of login
+				l=self.driver.find_elements_by_tag_name('h1')[0].text   # find evdence of login
+				print('get atrubutte test:',l)
 				print('l:',l, len(l))
-			except: pass
+			except: print('{bug-l}')
 
-			if l=='Cerrar sesión': # if found a text that say 'cerrar sesion', it means that already is logued
+			if l=='Mis anuncios': # if found a text that say 'cerrar sesion', it means that already is logued
 				print('OK LOGUIN')
 				cn=0 # just for if anything :v
 				return True # Before to start automate in routine file, first ensure that the login was succesfull

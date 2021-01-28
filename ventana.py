@@ -15,7 +15,8 @@ def closeAll():
 
 
 def key():
-	print(type(entry), entry.get())
+	print(type(entry))
+
 	if entry.get()=='o2021j': 
 		print('\n\n   <-BIENVENIDO-> \n\n')
 		log_w.withdraw()
@@ -84,7 +85,8 @@ def key():
 			if checklog.get() == 1 and ( user_var.get() == '' or psw_var.get() == '' ):
 				filt_l=False
 				error_l=Toplevel()
-				Label(error_l,text ='ERROR, FORMULARIO DE LOGIN SIN COMPLETAR', font=(16), pady=15).pack()
+				error_l.title('Error Login')
+				Label(error_l,text ='             [ ERROR ]:\n\n FORMULARIO DE LOGIN SIN COMPLETAR', font=(16), pady=15).pack()
 				error_l.mainloop()
 
 				raise NameError('End of filt_l') #Overturn(anular) this window
@@ -94,7 +96,8 @@ def key():
 			if checkpx.get() == 1 and  di_prox == {}:
 				filt_p=False
 				error_p=Toplevel()
-				Label(error_p,text ='SELECCIONASTE PROXY PERO NO AGREGASTE NINGUNO', font=(16), pady=15).pack()
+				error_p.title('Error Proxy ')
+				Label(error_p,text ='           [--  ERROR --]:\n\n SELECCIONASTE PROXY PERO NO AGREGASTE NINGUNO', font=(16), pady=15).pack()
 				error_l.mainloop()
 
 				raise NameError('End of filt_p')
@@ -146,7 +149,7 @@ def key():
 
 		#url vars
 		url_var=StringVar()
-		url_var.set('D:\chromedriver.exe')
+		url_var.set('C:\\t_t\\chromedriver.exe')
 		f_url_var=StringVar()
 
 		#Loop var
@@ -163,36 +166,78 @@ def key():
 
 
 		#TEMPORAL Test var SET #<<
+		def expl():
+			user_var.set('testmaster1255aa@gmail.com')
+			psw_var.set('master1255aa')
 
-		user_var.set('testmaster1255aa@gmail.com')
-		psw_var.set('master1255aa')
+			#Proxy Vars
+			host_var.set('185.58.198.140')
+			port_var.set(58542)
+			px_us_var.set('jomfeJutMo')
+			px_pw_var.set('KRq7tFAE0V')
 
-		#Proxy Vars
-		host_var.set('212.115.44.178')
-		port_var.set(58542)
-		px_us_var.set('tdt1RvAi59')
-		px_pw_var.set('VtSlkEIrJt')
+			#Form Vars
+			tit_var.set('Elaboracionn de tesis tfg /tfm')
+			name_var.set('javier martines')
+			phone_var.set('692875247')
+			phone2_var.set('')
+			mail_var.set('testmaster1255aa@gmail.com')
+			price_var.set('8')
 
-		#Form Vars
-		tit_var.set('Elaboracionn de tesis tfg /tfm')
-		name_var.set('javier martines')
-		phone_var.set('692875247')
-		phone2_var.set('')
-		mail_var.set('testmaster1255aa@gmail.com')
-		price_var.set('8')
+			#var to rotation and interval
+			inter_var.set(0)
+			rota_var.set(0)
 
-		#var to rotation and interval
-		inter_var.set(0)
-		rota_var.set(0)
+			#var img
+			img_var.set('')
 
-		#var img
-		img_var.set('')
+			#url_form vars
+			f_url_var.set('https://www.milanuncios.com/publicar-anuncios-gratis/formulario?c=323')
 
-		#url_form vars
-		f_url_var.set('https://www.milanuncios.com/publicar-anuncios-gratis/formulario?c=323')
+			#Loop var
+			loop_var.set(2)
 
-		#Loop var
-		loop_var.set(2)
+			#TExt
+			descript_box.insert(END,'''Te ayudamos Con los problemas academicos que tengas sobre el proyecto final de grado podemos
+asesorarte con clases particulares para la elaboracion del guion final del tfg o tfm y tesis doctoral en todas las ramas y todas las universidades tales como:
+Ade, Marketinng, Derecho, Economia, Planes de viabilidad o de empresa/negocio, analisis del TIR y BAN, analisis estadistico SPSS,
+psicologia, educacion, administracion, ingieneria, informatica entre otros, SPSS, psicologia, educacion, administracion, ingieneria,
+informatica entre otros. no dudes de contactar atraves de mesjaes privado correo o WhatsApp sin compromiso''')
+
+
+		def clean():
+			user_var.set('')
+			psw_var.set('')
+
+			#Proxy Vars
+			host_var.set('')
+			port_var.set(0)
+			px_us_var.set('')
+			px_pw_var.set('')
+
+			#Form Vars
+			tit_var.set('')
+			name_var.set('')
+			phone_var.set('')
+			phone2_var.set('')
+			mail_var.set('')
+			price_var.set('')
+
+			#var to rotation and interval
+			inter_var.set(0)
+			rota_var.set(0)
+
+			#var img
+			img_var.set('')
+
+			#url_form vars
+			f_url_var.set('')
+
+			#Loop var
+			loop_var.set(0)
+
+			#TExt
+			descript_box.delete('1.0',END)
 
 
 
@@ -339,15 +384,6 @@ def key():
 		descript_box.config(yscrollcommand=scroll_1.set)
 
 
-		#Temporal var set #<<
-		descript_box.insert(END,'''Te ayudamos Con los problemas academicos que tengas sobre el proyecto final de grado podemos
-asesorarte con clases particulares para la elaboracion del guion final del tfg o tfm y tesis doctoral en todas las ramas y todas las universidades tales como:
-Ade, Marketinng, Derecho, Economia, Planes de viabilidad o de empresa/negocio, analisis del TIR y BAN, analisis estadistico SPSS,
-psicologia, educacion, administracion, ingieneria, informatica entre otros, SPSS, psicologia, educacion, administracion, ingieneria,
-informatica entre otros. no dudes de contactar atraves de mesjaes privado correo o WhatsApp sin compromiso''')
-
-
-
 		price_text = Label(frame4 , text ='Precio', font=(16), bg="white")
 		price_text.grid(row = 2, column = 0, padx= 10, pady= 3)
 
@@ -424,6 +460,10 @@ informatica entre otros. no dudes de contactar atraves de mesjaes privado correo
 
 		checkpx.set(1)
 		Checkbutton(root, text="Proxy", variable=checkpx).place(x=61, y=585)
+
+		#example
+		Button(root, text='Example', fg='green', command=expl).place(x=61, y=488)
+		Button(root, text='LIMPIAR', fg='blue', command=clean).place(x=840, y=488)
 
 
 		root.mainloop()

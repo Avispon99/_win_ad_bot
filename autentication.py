@@ -4,10 +4,10 @@ import time
 
 from selenium import webdriver
 
-PROXY_HOST = '200.0.61.254'  # rotating proxy
-PROXY_PORT = 29842
-PROXY_USER = 'olopez03'
-PROXY_PASS = '09Ngt4q6'
+PROXY_HOST = '212.115.44.178'  # rotating proxy
+PROXY_PORT = 58542
+PROXY_USER = 'tdt1RvAi59'
+PROXY_PASS = 'VtSlkEIrJt'
 
 
 manifest_json = """
@@ -80,7 +80,7 @@ def get_chromedriver(use_proxy=False, user_agent=None):
     #driver = webdriver.Chrome(os.path.join(path, 'chromedriver'),chrome_options=chrome_options)
     chrome_options.add_argument('--disable-gpu')
     #driver = webdriver.Chrome(executable_path='D:\\chromedriver.exe',chrome_options=chrome_options)
-    driver = webdriver.Chrome(executable_path='D:\\c_driver\\chromedriver.exe',chrome_options=chrome_options)
+    driver = webdriver.Chrome(executable_path='D:\\t_t\\chromedriver.exe',chrome_options=chrome_options) #D:\\c_driver\\chromedriver.exe
 
     
     return driver
